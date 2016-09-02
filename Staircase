@@ -1,0 +1,22 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    
+    //string ( size_t n, char c );
+    char stair = '#'; 
+    char space = ' ';
+    
+    for(int i=1; i<=n ; i++){
+        cout << string(n-i , space);
+        cout << string(i , stair) <<endl;
+    }
+    
+    return 0;
+}
