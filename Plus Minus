@@ -1,0 +1,57 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main(){
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    for(int arr_i = 0;arr_i < n;arr_i++){
+       cin >> arr[arr_i];
+    }
+    
+    int positive=0, negative=0, zero=0;
+    
+    for (int arr_i = 0 ; arr_i < n ; arr_i++){
+        if (arr[arr_i] > 0){
+            positive++;
+        }
+        else if (arr[arr_i] < 0){
+            negative++;
+        }
+        else {                      //or else it is a 0
+            zero++;
+        }
+    }
+    
+    //print positive, negative, zero
+    cout << (float) positive/n <<endl;
+    cout << (float) negative/n <<endl;
+    cout << (float) zero/n <<endl;
+    
+    //cout << "positive : " <<positive <<endl;
+    //cout << "negative : " <<negative <<endl;
+    //cout << "zero : " <<zero <<endl;
+    
+    return 0;
+}
+
+
+/*
+    int denominator = arr.length;
+    int positives = 0, negatives = 0, zeroes = 0;
+
+    for (int num : arr){
+        zeroes += (num == 0) ? 1 : 0;
+        positives += (num > 0) ? 1 : 0;
+        negatives += (num < 0) ? 1 : 0;
+    }
+
+    System.out.println((float) positives / denominator);
+    System.out.println((float) negatives / denominator);
+    System.out.println((float) zeroes / denominator);
+*/
