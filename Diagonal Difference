@@ -1,0 +1,42 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main(){
+    int n;
+    int answerOutput;                           //the output we want is the absolute difference of the two sum
+    
+    cin >> n;
+    vector< vector<int> > a(n,vector<int>(n));
+    for(int a_i = 0;a_i < n;a_i++){
+       for(int a_j = 0;a_j < n;a_j++){
+          cin >> a[a_i][a_j];
+       }
+    }
+    
+    int topLeftbottomRight = 0;
+    int topRightbottomLeft = 0;
+    int flipCount = 0;                          //this is for the x-value for the second for loop
+    
+    for(int ind=0 ; ind<n ; ind++){     //ind=index. both x and y are going to be the same value
+        topLeftbottomRight = a[ind][ind] + topLeftbottomRight;
+    }
+    
+    for(int ind=n-1 ; ind>=0 ; ind--){     //the y-value is n-1 down to 0
+                                           //the x-value is 0 up to n-1
+        topRightbottomLeft = a[flipCount][ind] + topRightbottomLeft;
+        flipCount++;
+    }
+    
+    //cout << "topLeftbottomRight : " << topLeftbottomRight <<endl;
+    //cout << "topRightbottomLeft : " << topRightbottomLeft <<endl;
+    answerOutput = abs(topLeftbottomRight - topRightbottomLeft);
+    
+    cout << answerOutput;
+    
+    return 0;
+}
