@@ -1,0 +1,51 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+//string substr (size_t pos = 0, size_t len = npos) const;
+
+int main(){
+    string time;
+    cin >> time;                    //example : 07:05:45PM
+                                    //sample output : 19:05:45
+    string hour = time.substr(0,2);
+    string rest = time.substr(2,6);
+    char conv = time.at(8);
+    /*
+    cout << "hour : " <<hour <<endl;
+    cout << "rest : " <<rest <<endl;
+    cout << "conv : " <<conv <<endl;
+    */
+    
+    
+    int hourInt = stoi(hour);
+    
+    if(conv == 'P'){
+        if(hourInt<12 && hourInt>=1){
+            hourInt = hourInt + 12;
+            cout << hourInt << rest;
+        }
+        else{                       //it means it is 12PM
+            cout << hourInt << rest;
+        }
+    }
+    else{
+        if(hourInt<12 && hourInt>=1){
+            if(hourInt<10){
+               cout << "0" << hourInt << rest;
+            }
+            else{
+               cout << hourInt << rest; 
+            }
+        }
+        else{                       //it means it is 12AM
+            cout << "00" << rest;
+        }
+    }
+    
+    
+    return 0;
+}
